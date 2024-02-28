@@ -18,11 +18,24 @@ pip install -r requirements.txt
 For deployment on Jetson Nano, pull the Docker image from `ghcr.io/meenakshi-srm/adis_nano_cuda:latest`. This Docker image utilizes the GPU of Jetson Nano. Installing Python 3.8 on Jetson Nano that uses GPU can be troublesome, hence the Docker image is provided.
 
 To pull and run the Docker image, use the following commands:
+> **Note:** You will need the credentials to pull the Docker image from the GitHub Container Registry. 
+You can use the following command to login to the GitHub Container Registry:
+```bash
+echo 'your_access_token' | sudo docker login ghcr.io -u meenakshi-srm --password-stdin
+```
 
 ```bash
 sudo docker pull ghcr.io/meenakshi-srm/adis_nano_cuda:latest
 sudo docker run -it --gpus all --privileged --net host --name test ghcr.io/meenakshi-srm/adis_nano_cuda:latest
 ```
+This will create a container named `test` and start the container.
+To use the container again after exiting, use the following command:
+
+```bash
+sudo docker start test
+sudo docker exec -it test /bin/bash
+```
+This will start the container and open a bash shell inside the container.
 
 **Note:** Ensure that the camera is connected beforehand to include the hardware in the container.
 
