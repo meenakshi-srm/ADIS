@@ -46,6 +46,9 @@ After installation, download the `best.pt` weight from the releases and place it
 ```bash
 python3 detect.py --source 0 --weights best.pt --nosave --max-det 1 --max-conf 0.5
 ```
+![adis](https://github.com/meenakshi-srm/ADIS/assets/7910845/e839c2c6-a11e-4cca-9200-eda1684749f5)
+
+
 To use custom script, run the following command:
 
 ```bash
